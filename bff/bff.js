@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+require('dotenv').config();
 
 const app = express();
 
@@ -37,7 +38,7 @@ app.get('/microservico/:id?', (req, res) => {
     let url = 'https://hiscare-ms-clean.salmonsand-d9d9504c.eastus.azurecontainerapps.io/users'; 
 
     if (id) {
-      url = `https://hiscare-ms-clean.salmonsand-d9d9504c.eastus.azurecontainerapps.io/users/${id}`
+      url = `${process.env.MS-USERALL}/${id}`
     }
 
     axios.get(url)
