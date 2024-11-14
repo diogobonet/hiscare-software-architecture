@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using System.Data.SqlClient;
 using System.IO;
 using System.Threading.Tasks;
+using DotNetEnv;
 
 namespace FunctionCrudA
 {
@@ -39,7 +40,7 @@ namespace FunctionCrudA
                 return new BadRequestObjectResult("Por favor, forneça o CRM para identificar o médico a ser editado.");
             }
 
-            string connectionString = "Server=tcp:hiscaredb.database.windows.net,1433;Initial Catalog=Hiscare;Persist Security Info=False;User ID=gustavo;Password=Guga2406;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = Environment.GetEnvironmentVariable("SqlConnectionString");
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

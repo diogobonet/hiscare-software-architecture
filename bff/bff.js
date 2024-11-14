@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 // Create
 app.post('/microservico/', (req, res) => {
-    const url = 'https://hiscare-ms-clean.salmonsand-d9d9504c.eastus.azurecontainerapps.io/users'; 
+    const url = `${process.env.API_USER_MS}`;
 
     axios.post(url, req.body)
       .then(response => {
@@ -21,7 +21,7 @@ app.post('/microservico/', (req, res) => {
 });
 
 app.post('/function/', (req, res) => {
-    const url = 'https://crudgustavo.azurewebsites.net/api/inserirpessoa'; 
+    const url = `${process.env.API_USER_FUNC_POST}`; 
 
     axios.post(url, req.body)
       .then(response => {
@@ -35,10 +35,10 @@ app.post('/function/', (req, res) => {
 // Read All and ID
 app.get('/microservico/:id?', (req, res) => {
     const { id } = req.params; 
-    let url = 'https://hiscare-ms-clean.salmonsand-d9d9504c.eastus.azurecontainerapps.io/users'; 
+    let url = `${process.env.API_USER_MS};`
 
     if (id) {
-      url = `${process.env.MS-USERALL}/${id}`
+      url = `${process.env.API_USER_MS}/${id}`
     }
 
     axios.get(url)
@@ -52,10 +52,10 @@ app.get('/microservico/:id?', (req, res) => {
 
 app.get('/function/', (req, res) => {
   const crm = req.query.crm; 
-  let url = 'https://crudgustavo.azurewebsites.net/api/pesquisarpessoas'; 
+  let url = `${process.env.API_USER_FUNC_GET}`; 
 
   if (crm) {
-      url = `https://crudgustavo.azurewebsites.net/api/pesquisarpessoa?crm=${crm}`;
+      url = `${process.env.API_USER_FUNC_GET}?crm=${crm}`;
   }
 
   axios.get(url)
@@ -70,7 +70,7 @@ app.get('/function/', (req, res) => {
 // Update
 app.put('/microservico/:id', (req, res) => {
   const id = req.params.id;
-  const url = `https://hiscare-ms-clean.salmonsand-d9d9504c.eastus.azurecontainerapps.io/users/${id}`;
+  const url = `${process.env.API_USER_MS}/${id}`;
 
   axios.put(url, req.body)
     .then(response => {
@@ -82,7 +82,7 @@ app.put('/microservico/:id', (req, res) => {
 });
 
 app.put('/function/', (req, res) => {
-  const url = 'https://crudgustavo.azurewebsites.net/api/editarpessoa'; 
+  const url = `${process.env.API_USER_FUNC_PUT}`; 
 
   axios.put(url, req.body)
   .then(response => {
@@ -96,7 +96,7 @@ app.put('/function/', (req, res) => {
 // Delete
 app.delete('/microservico/:id', (req, res) => {
   const { id } = req.params;
-  const url = `https://hiscare-ms-clean.salmonsand-d9d9504c.eastus.azurecontainerapps.io/users/${id}`; 
+  const url = `${process.env.API_USER_MS}/${id}`; 
 
   axios.delete(url)
   .then(response => {
@@ -109,7 +109,7 @@ app.delete('/microservico/:id', (req, res) => {
 
 app.delete('/function/', (req, res) => {
   const crm = req.query.crm; 
-  const url = `https://crudgustavo.azurewebsites.net/api/excluirpessoa?crm=${crm}`;
+  const url = `${process.env.API_USER_FUNC_DELETE}?crm=${crm}`;
 
   axios.delete(url)
     .then(response => {
@@ -122,7 +122,7 @@ app.delete('/function/', (req, res) => {
 
 app.post('/sendCrm/', (req, res) => {
 
-  const url = 'https://hiscare-ms-clean.salmonsand-d9d9504c.eastus.azurecontainerapps.io/sendCrm'; 
+  const url = `${process.env.API_USER_MS_CRM}`; 
 
   axios.post(url, req.body)
       .then(response => {

@@ -25,7 +25,7 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: 'TokenDocker'
-        repository: 'GustavoLuizFarignoli/HISCare'
+        repository: '/HISCare'
         command: 'buildAndPush'
         tags: '$(Build.BuildId)'
         Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'

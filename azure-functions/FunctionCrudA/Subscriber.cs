@@ -33,8 +33,8 @@ namespace FunctionCrudA
                 string crm = message.Crm;
                 DateTime currentDateTime = DateTime.UtcNow; // Utiliza data/hora UTC para o campo modificado
 
-                // String de conexão com o banco de dados
-                string connectionString = "Server=tcp:hiscaredb.database.windows.net,1433;Initial Catalog=Hiscare;Persist Security Info=False;User ID=gustavo;Password=Guga2406;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+                // String de conexï¿½o com o banco de dados
+                string connectionString = Environment.GetEnvironmentVariable("SqlConnectionString");
 
                 // Conecta ao banco de dados e atualiza o campo "modificado"
                 using (SqlConnection connection = new SqlConnection(connectionString))

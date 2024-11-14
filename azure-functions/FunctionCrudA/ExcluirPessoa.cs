@@ -24,7 +24,7 @@ public class ExcluirPessoa
             }
 
             // Retrieve connection string from environment variables
-            var connectionString = "Server=tcp:hiscaredb.database.windows.net,1433;Initial Catalog=Hiscare;Persist Security Info=False;User ID=gustavo;Password=Guga2406;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = Environment.GetEnvironmentVariable("SqlConnectionString");
 
             try
             {

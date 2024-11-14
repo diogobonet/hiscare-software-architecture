@@ -23,7 +23,7 @@ namespace FunctionCrudA
         {
 
             // Retrieve connection string from environment variables
-            var connectionString = "Server=tcp:hiscaredb.database.windows.net,1433;Initial Catalog=Hiscare;Persist Security Info=False;User ID=gustavo;Password=Guga2406;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = Environment.GetEnvironmentVariable("SqlConnectionString");
 
             string query = "SELECT * FROM dbo.Medicos";
             var result = "";
@@ -38,7 +38,7 @@ namespace FunctionCrudA
 
                     while (reader.Read())
                     {
-                        result += "Id: " + reader[0].ToString() + " Nome: " + reader[1].ToString() + " CRM: " + reader[2].ToString() + " Especialidade:" + reader[3].ToString() + " Telefone:" + reader[4].ToString() + " Email:" + reader[5].ToString() + " Aniversário:" + reader[6].ToString() + " Genero:" + reader[7].ToString() + " Endereço:"+ reader[8].ToString() + " Modificado:" + reader[9].ToString() + "\n"; 
+                        result += "Id: " + reader[0].ToString() + " Nome: " + reader[1].ToString() + " CRM: " + reader[2].ToString() + " Especialidade:" + reader[3].ToString() + " Telefone:" + reader[4].ToString() + " Email:" + reader[5].ToString() + " Aniversï¿½rio:" + reader[6].ToString() + " Genero:" + reader[7].ToString() + " Endereï¿½o:"+ reader[8].ToString() + " Modificado:" + reader[9].ToString() + "\n"; 
                     }
                 }
             }
