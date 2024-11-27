@@ -1,7 +1,9 @@
 # HisCare - Software Architecture
 ### Choose a language | Escolha uma linguagem
-- PT-BR
-- EN
+- [PT-BR](#pt-br)
+- [EN](#en)
+
+# PT-BR
 
 ## Índice
 1. [O que é o HisCare?](#o-que-é-o-hiscare)
@@ -66,3 +68,68 @@ Para rodar o teste, executar o seguinte comando:
 ```npm run test -- --coverage```
 
 ---
+
+# EN
+
+## Table of Contents
+1. [What is HisCare?](#what-is-hiscare)
+2. [Architectures and Design Patterns](#architectures-and-design-patterns)
+3. [Generated Artifacts](#generated-artifacts)
+4. [How the Architecture Works](#how-the-architecture-works)
+5. [Technologies Used](#technologies-used)
+6. [Tests](#tests)
+
+## What is HisCare?
+HisCare is a comprehensive health management solution designed to strengthen the connection between patients and doctors, empowering patients to take a more active role in monitoring their own health. The platform provides a wide range of functionalities, from detailed health information recording to direct communication between patients and doctors, all with a focus on data security and privacy.
+
+## Architectures and Design Patterns
+**HisCare** leverages modern architecture patterns, including:
+
+- **Micro-Front End (MFE):** Modularizes the interface into microcomponents, enabling scalability and easier maintenance.
+
+- **Clean Architecture:** Ensures clear separation of concerns across layers for better readability and maintainability.
+
+- **Vertical Slice:** Structures code by features, improving isolation and testability.
+
+## Generated Artifacts
+1. *Microservice (Node.js & MongoDB)* - Responsible for handling patient user registration;
+2. *Azure Functions (C# & Microsoft SQL Server)* - Handles doctor user registration;
+3. *BFF (Node.js)* - Acts as a middleware, linking microservices (MS) and Azure Functions to handle requests;
+4. *Docker & Docker Hub* - Containers both the Microservice and the BFF. They are hosted on Docker Hub, with virtual containers managed by Azure Container Apps to handle MS and Azure Functions requests through the BFF;
+5. *AWS API Gateway* - Centralizes BFF routes by mapping its endpoints to the API Gateway;
+6. Arc42 - Architectural documentation;
+7. ATAM - Documentation for architectural trade-off analysis.
+
+## How the Architecture Works
+HisCare uses the MFE pattern to divide the user interface into modules for doctors and patients. On the backend, a combination of microservices and Azure Functions ensures scalability and integration with both relational and non-relational databases. User requests are routed through the **AWS API Gateway**, which forwards them to the **BFF** for orchestration and dispatch to the appropriate services.
+
+![HisCare Architecture](https://github.com/diogobonet/hiscare-software-architecture/blob/main/docs/images/diagram.jpg)
+
+## Technologies Used
+
+### Languages and Frameworks:
+
+- **Backend:** Node.js, Azure Functions (C#)
+
+- **Databases:** MongoDB Atlas (non-relational) and Microsoft SQL Server (relational);
+
+### Infrastructure:
+
+- **Docker & Docker Hub** for containerization.
+- **Azure Container Apps** for orchestration.
+- **AWS API Gateway** for route centralization.
+
+### Documentation and Modeling:
+
+- **Arc42** for architectural documentation.
+- **ATAM** for analyzing architectural trade-offs.
+
+## Tests
+The architecture tests were developed using **Jest**, ensuring that all application layers and interactions adhere to the principles defined by Clean Architecture. These tests focus on the patient microservice (Node.js).
+
+The goal is to validate the correct separation of responsibilities and interaction between layers.  
+To run the tests, use the following command:
+
+```
+npm run test -- --coverage
+```
