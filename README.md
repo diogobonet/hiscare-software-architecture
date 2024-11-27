@@ -36,7 +36,7 @@ O HISCare é uma solução abrangente de gestão de saúde que visa fortalecer a
 ## Como funciona a arquitetura?
 O HisCare utiliza o padrão MFE para dividir a interface entre as funcionalidades de médicos e pacientes. No backend, uma combinação de microserviços e Azure Functions garante alta escalabilidade e integração com diferentes bancos de dados. As requisições dos usuários passam pelo AWS API Gateway, que direciona as chamadas ao BFF para orquestração e envio aos serviços relevantes.
 
-![Arquitetura do HisCare](../hiscare-software-architecture/docs/images/diagram.jpg)
+![Arquitetura do HisCare](https://github.com/diogobonet/hiscare-software-architecture/blob/main/docs/images/diagram.jpg)
 
 
 ## Tecnologias Utilizadas
