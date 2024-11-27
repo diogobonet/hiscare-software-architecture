@@ -15,6 +15,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FunctionCrudA
-build_property.ProjectDir = d:\GitHub\hiscare-software-architecture\azure-functions\FunctionCrudA\
+build_property.ProjectDir = c:\Users\Meisters\Desktop\NPD-PROJECTS\hiscare-software-architecture\azure-functions\FunctionCrudA\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
